@@ -19,11 +19,7 @@ namespace DiceRoller.Engine.Managers
 
         public void UnregisterDice(IDie d)
         {
-            int index = observers.IndexOf(d);
-            if (index != -1)
-            {
-                observers[index] = null;
-            }
+            observers.Remove(d);
         }
 
         public void NotifyDice()
