@@ -15,21 +15,18 @@ namespace DiceRoller.Forms.UserControls
         public Dice(int diceSides)
         {
             InitializeComponent();
-            Die = new Engine.Dice(diceSides);
-            Roll();
+            Die = new Engine.Objects.Die(diceSides);
+            RollDice();
         }
 
-        private Engine.Dice Die { get; set; }
+        private Engine.Objects.Die Die { get; set; }
 
-        public void Roll()
-        {
-            Die.Roll();
-            lblDice.Text = Die.Result.ToString();
-        }
+        public int DiceResult { get; set; }
 
-        public int Result()
+        public void RollDice()
         {
-            return Die.Result;
+            DiceResult = Die.RollDice();
+            lblDice.Text = DiceResult.ToString();
         }
     }
 }

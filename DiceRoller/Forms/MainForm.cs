@@ -29,7 +29,7 @@ namespace DiceRoller.Forms
             var result = 0;
             foreach (UserControls.Dice uc in flpDice.Controls)
             {
-                result += uc.Result();
+                result += uc.DiceResult;
             }
 
             lblResult.Text = result.ToString();
@@ -74,7 +74,7 @@ namespace DiceRoller.Forms
         {
             foreach (UserControls.Dice uc in flpDice.Controls)
             {
-                uc.Roll();
+                uc.RollDice();
             }
             CalculateResult();
         }

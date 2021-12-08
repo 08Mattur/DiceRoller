@@ -1,18 +1,18 @@
 ﻿namespace DiceRoller.Engine.Objects
 {
-    internal class Dice
+    public class Die
     {
         private readonly int _sides;
 
-        public Dice(int sides)
+        public Die(int sides)
         {
             _sides = sides;
         }
 
-        internal int RollDice()
+        public int RollDice()
         {
             var rnd = new Random();
-            return rnd.Next(1, _sides);
+            return rnd.Next(1, _sides+1);
         }
     }
 }
