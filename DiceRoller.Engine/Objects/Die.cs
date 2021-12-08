@@ -13,6 +13,7 @@ namespace DiceRoller.Engine.Objects
         {
             _manager = manager;
             _sides = sides;
+            Roll();
             _manager.RegisterDice(this);
         }
 

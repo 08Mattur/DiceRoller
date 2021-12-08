@@ -15,11 +15,13 @@ namespace DiceRoller.Engine.Managers
         public void RegisterDice(IDie d)
         {
             observers.Add(d);
+            GetResults();
         }
 
         public void UnregisterDice(IDie d)
         {
             observers.Remove(d);
+            GetResults();
         }
 
         public void NotifyDice()
@@ -31,20 +33,31 @@ namespace DiceRoller.Engine.Managers
             }
         }
 
-        public int DisplayInt()
+        public int ResultInt{ get; set; }
+        public string ResultString { get; set; }
+            
+        public void Roll()
         {
-            var result = 0;
+            NotifyDice();    
+            GetResults();
+        }
+
+        public void GetResults()
+        {
+            var result = "";
+            var dlim = "";
+
+            var resultInt = 0;
             foreach (var d in observers)
             {
                 IDisplay display = (IDisplay)d;
-                result += display.DisplayInt();
+                resultInt += display.DisplayInt();
+                result += dlim + display.DisplayString();
+                dlim = " + ";
             }
-            return result;
-        }
 
-        public void Roll()
-        {
-            NotifyDice();
+            ResultInt = resultInt;
+            ResultString = $"({result})";
         }
     }
 }

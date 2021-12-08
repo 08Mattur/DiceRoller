@@ -20,7 +20,6 @@ namespace DiceRoller.Forms.UserControls
             InitializeComponent();
             _mainForm = mainForm;
             Die = new Engine.Objects.Die(manager, diceSides);
-            Die.Roll();
             Display();
         }
 

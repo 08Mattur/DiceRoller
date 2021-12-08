@@ -37,7 +37,8 @@ namespace DiceRoller.Forms
             {
                 ucD.Display();
             }
-            lblResult.Text = _diceManager.DisplayInt().ToString();
+            lblResult.Text = _diceManager.ResultInt.ToString();
+            lblStringResult.Text = _diceManager.ResultString;
         }
 
         private void btnAddD4_Click(object sender, EventArgs e)
