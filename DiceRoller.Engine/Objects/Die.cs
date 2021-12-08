@@ -16,6 +16,11 @@ namespace DiceRoller.Engine.Objects
             _manager.RegisterDice(this);
         }
 
+        public void UnRegister()
+        {
+            _manager.UnregisterDice(this);
+        }
+
         public string DisplayString()
         {
             return _result.ToString();

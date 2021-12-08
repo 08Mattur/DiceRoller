@@ -20,10 +20,16 @@ namespace DiceRoller.Forms
 
         private void CreateNewDice(int sides)
         {
-            var uc = new UserControls.Dice(_diceManager, sides);
+            var uc = new UserControls.Dice(_diceManager, sides, this);
             flpDice.Controls.Add(uc);
             Display();
         }       
+
+        public void Remove(UserControls.Dice toRemove)
+        {
+            flpDice.Controls.Remove(toRemove);
+            Display();
+        }
 
         private void Display()
         {

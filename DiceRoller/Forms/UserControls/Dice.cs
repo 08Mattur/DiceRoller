@@ -13,10 +13,12 @@ namespace DiceRoller.Forms.UserControls
     public partial class Dice : UserControl
     {
         private Engine.Objects.Die Die { get; set; }
+        private MainForm _mainForm;
 
-        public Dice(Engine.Managers.DiceManager manager, int diceSides)
+        public Dice(Engine.Managers.DiceManager manager, int diceSides, MainForm mainForm)
         {
             InitializeComponent();
+            _mainForm = mainForm;
             Die = new Engine.Objects.Die(manager, diceSides);
             Die.Roll();
             Display();
@@ -29,7 +31,9 @@ namespace DiceRoller.Forms.UserControls
 
         private void lblDice_MouseClick(object sender, MouseEventArgs e)
         {
-
+            Die.UnRegister();
+            Die = null;
+            _mainForm.Remove(this);
         }
     }
 }
