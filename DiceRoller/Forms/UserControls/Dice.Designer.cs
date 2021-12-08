@@ -37,19 +37,19 @@
             this.lblDice.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDice.Location = new System.Drawing.Point(0, 0);
             this.lblDice.Name = "lblDice";
-            this.lblDice.Size = new System.Drawing.Size(89, 88);
+            this.lblDice.Size = new System.Drawing.Size(93, 92);
             this.lblDice.TabIndex = 0;
             this.lblDice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDice.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblDice_MouseClick);
             // 
             // Dice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.lblDice);
             this.Name = "Dice";
-            this.Size = new System.Drawing.Size(89, 88);
+            this.Size = new System.Drawing.Size(93, 92);
             this.ResumeLayout(false);
 
         }

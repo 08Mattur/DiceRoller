@@ -12,24 +12,27 @@ namespace DiceRoller.Forms.UserControls
 {
     public partial class Dice : UserControl
     {
-        public Dice(int diceSides)
+        private Engine.Objects.Die Die { get; set; }
+        private MainForm _mainForm;
+
+        public Dice(Engine.Managers.DiceManager manager, int diceSides, MainForm mainForm)
         {
             InitializeComponent();
-            Die = new Engine.Dice(diceSides);
-            Roll();
+            _mainForm = mainForm;
+            Die = new Engine.Objects.Die(manager, diceSides);
+            Display();
         }
 
-        private Engine.Dice Die { get; set; }
-
-        public void Roll()
+        public void Display()
         {
-            Die.Roll();
-            lblDice.Text = Die.Result.ToString();
+            lblDice.Text = Die.DisplayString();
         }
 
-        public int Result()
+        private void lblDice_MouseClick(object sender, MouseEventArgs e)
         {
-            return Die.Result;
+            Die.UnRegister();
+            Die = null;
+            _mainForm.Remove(this);
         }
     }
 }
