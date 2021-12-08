@@ -12,6 +12,7 @@ namespace DiceRoller.Forms
 {
     public partial class MainForm : Form
     {
+        private Engine.Managers.DiceManager _diceManager = new Engine.Managers.DiceManager();
         public MainForm()
         {
             InitializeComponent();
@@ -19,20 +20,18 @@ namespace DiceRoller.Forms
 
         private void CreateNewDice(int sides)
         {
-            var uc = new UserControls.Dice(sides);
+            var uc = new UserControls.Dice(_diceManager, sides);
             flpDice.Controls.Add(uc);
-            CalculateResult();
-        }
+            Display();
+        }       
 
-        private void CalculateResult()
+        private void Display()
         {
-            var result = 0;
-            foreach (UserControls.Dice uc in flpDice.Controls)
+            foreach (UserControls.Dice ucD in flpDice.Controls)
             {
-                result += uc.Result();
+                ucD.Display();
             }
-
-            lblResult.Text = result.ToString();
+            lblResult.Text = _diceManager.DisplayInt().ToString();
         }
 
         private void btnAddD4_Click(object sender, EventArgs e)
@@ -72,11 +71,8 @@ namespace DiceRoller.Forms
 
         private void btnRoll_Click(object sender, EventArgs e)
         {
-            foreach (UserControls.Dice uc in flpDice.Controls)
-            {
-                uc.Roll();
-            }
-            CalculateResult();
+            _diceManager.Roll();
+            Display();
         }
     }
 }
