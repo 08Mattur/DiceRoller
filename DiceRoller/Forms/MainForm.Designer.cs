@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblResult = new System.Windows.Forms.Label();
             this.flpDice = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblStringResult = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -164,10 +165,12 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblResult, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblStringResult, 1, 1);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 365);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(554, 58);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -175,7 +178,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 21);
+            this.label1.Location = new System.Drawing.Point(3, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 15);
             this.label1.TabIndex = 0;
@@ -186,7 +189,7 @@
             // 
             this.lblResult.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(113, 21);
+            this.lblResult.Location = new System.Drawing.Point(113, 7);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(0, 15);
             this.lblResult.TabIndex = 1;
@@ -198,6 +201,15 @@
             this.flpDice.Name = "flpDice";
             this.flpDice.Size = new System.Drawing.Size(554, 356);
             this.flpDice.TabIndex = 1;
+            // 
+            // lblStringResult
+            // 
+            this.lblStringResult.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblStringResult.AutoSize = true;
+            this.lblStringResult.Location = new System.Drawing.Point(113, 36);
+            this.lblStringResult.Name = "lblStringResult";
+            this.lblStringResult.Size = new System.Drawing.Size(0, 15);
+            this.lblStringResult.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -233,5 +245,6 @@
         private Label label1;
         private Label lblResult;
         private FlowLayoutPanel flpDice;
+        private Label lblStringResult;
     }
 }
